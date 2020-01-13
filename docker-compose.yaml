@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: nodejs
+    restart: unless-stopped
+    networks:
+      - app-network
+    depends_on:
+      - db
+    ports:
+      - 3000:3050
+    environment:
+      DB_HOST: db
+  db:
+    image: postgres
+    networks:
+      - app-network
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: test_db
+
+networks:
+  app-network:
