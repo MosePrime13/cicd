@@ -21,9 +21,10 @@ services:
     networks:
       - app-network
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: test_db
+      POSTGRES_PASSWORD: 
+      POSTGRES_USER: root
+      POSTGRES_DB: defaultdb
+    command: start --insecure
 
 networks:
   app-network:
