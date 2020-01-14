@@ -12,7 +12,8 @@ let sequelize = new Sequelize('test_db', 'postgres', 'postgres', {
       max: 5,
       min: 0,
       idle: 10000
-    }
+    },
+    storage: ':memory:'
 });
 
 const UserFactory = (sequelize, DataTypes) => {

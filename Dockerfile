@@ -6,7 +6,6 @@ COPY package*.json ./
 USER node
 RUN npm install --production
 COPY --chown=node:node app.js .
-COPY --chown=node:node wait-for-it.sh .
 
 EXPOSE 3050
 CMD [ "node", "app.js" ]
