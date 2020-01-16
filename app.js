@@ -4,9 +4,10 @@ const Sequelize = require('sequelize-cockroachdb');
 const app = express();
 app.use(express.json());
 
-let sequelize = new Sequelize('test_db', 'postgres', 'postgres', {
+let sequelize = new Sequelize('defaultdb', 'root', null, {
     dialect: 'postgres',
-    host: process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'db',
+    port: process.env.DB_PORT || '26257',
     logging: false,
     pool: {
       max: 5,
